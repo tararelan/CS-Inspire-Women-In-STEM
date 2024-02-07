@@ -1,0 +1,376 @@
+{% extends 'basic.html' %}
+
+{% block content %}
+<head>
+    <title>Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .float-container {
+            padding: 30px;
+        }
+
+        .float-child {
+            width: 50%;
+            float: left;
+            padding: 30px;
+        }
+
+        /* Same thing but with a border */
+        .float-child1 {
+            width: 40%;
+            float: left;
+            padding: 10px;
+            border: 1px solid lightgray;
+            border-collapse: separate;
+            width: calc(50% - 4.7em);
+            margin-left: 3.5em;
+        }
+
+        .float-left {
+            width: 100%;
+            float: left;
+            padding: 30px;
+        }
+
+        .float-right {
+            width: 50%;
+            float: right;
+            padding: 30px;
+        }
+
+        .float-center {
+            display: block;
+            float: center;
+            margin-left: auto;
+            margin-right: auto;
+            width: 600px;
+            height: 400px;
+        }
+
+        .cropped {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: Verdana, sans-serif;
+            margin: 0
+        }
+
+        /* Slideshow container */
+        .slideshow-container {
+            position: relative;
+            background: #fffffff1;
+        }
+
+        /* Slides */
+        .mySlides {
+            display: none;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Next & previous buttons */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -30px;
+            padding: 16px;
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            font-size: 20px;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            position: absolute;
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* The dot/bullet/indicator container */
+        .dot-container {
+            text-align: center;
+            padding: 30px;
+            background: #fffffff1;
+        }
+
+        /* The dots/bullets/indicators */
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: rgb(183, 180, 180);
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        /* Add a background color to the active dot/circle */
+        .active,
+        .dot:hover {
+            background-color: #717171;
+        }
+
+        /* Add a blue color to the author */
+        .author {
+            color: rgb(0, 0, 0);
+        }
+
+        .button {
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px 1px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .button1 {
+            background-color: white;
+            color: black;
+            border: 2px solid #6d31a2;
+        }
+
+        .button1:hover {
+            background-color: #6d31a2;
+            color: white;
+        }
+
+        .buttoncenter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+        }
+
+        footer {
+            /* text-align: center; */
+            padding-left: 30px;
+            padding: 3px;
+            background-color: #6d31a2;
+            color: white;
+        }
+
+        .fa {
+            padding-left: 30px;
+            padding-top: 5px;
+            /* padding: 20px; */
+            font-size: 30px;
+            width: 30px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+            border-radius: 50%;
+            color: white;
+        }
+
+        .fa:hover {
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- INTRODUCTION -->
+    <div class="float-container">
+        <div class="cropped">
+            <img src="/media/images/BANNERS 3 (56).png" alt="STEM" style="position:absolute; top:56px; left:-1px;"
+                width="100.1%">
+        </div>
+
+        <br><br>
+
+        <div class="float-left">
+            <h1 style="font-size:4vw; color:#6d31a2"><strong>Women in STEM</strong></h1>
+            <h4 style="color:#6d31a2">Connecting Like-Minded Aspiring Professionals</p>
+        </div>
+
+        <div class="float-child">
+            <p>
+                Welcome to the Women in STEM network!
+            </p>
+            <p>
+                Often, the paths that we choose to follow are influenced by the people we interact with & look
+                up to. Various research studies have shown that the presence of female role models is a highly
+                effective way in encouraging women to think differently and therefore to choose a path that
+                otherwise might be deemed less favourable for women. Providing opportunities to young
+                women to get access & exposure to female role models could therefore become a powerful
+                tool to #BreakTheBias.
+            </p>
+            <p>
+                This online platform has been set up to bring together professionals in STEM professions
+                throughout the world. At WiSTEM, we are passionate about addressing the gender imbalance in STEM.
+                We host regular networking and careers events for students and recent graduates who identify as
+                female and are looking to start their careers in a STEM industry.
+            </p>
+            </p>
+        </div>
+        <br>
+        <div class="float-child">
+            <img src="https://wearetechwomen.com/wp-content/uploads/2021/09/shutterstock_1687431796.jpg"
+                alt="Female Programmer" width="100%" height="400" overflow="hidden">
+        </div>
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <!-- END -->
+
+
+    <!-- NEWS -->
+    <div class="slideshow-container">
+        <div class="mySlides">
+            <h5 style="color:#6d31a2">Breaking News: Clearview AI Fined for Storing UK Facial Images</h5>
+        </div>
+
+        <div class="mySlides">
+            <h5 style="color:#6d31a2">Breaking News: Subsea Internet Cables Could Detect Earthquakes</h5>
+        </div>
+
+        <div class="mySlides">
+            <h5 style="color:#6d31a2">Breaking News: First Picture of Monster Black Hole in our Galaxy</h5>
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+
+    <div class="dot-container">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
+    <div class="float-container">
+        <div class="buttoncenter">
+            <a href="http://127.0.0.1:8000/news/" class="button button1">ALL NEWS</a>
+        </div>
+    </div>
+    <!-- END -->
+
+
+    <!-- STATISTICS -->
+    <div class="float-container">
+        <div class="float-left">
+            <h3 style="color:#6d31a2"><strong>STATISTICS</strong></h3>
+        </div>
+        <!-- Add font awesome icons -->
+        <img src="/media/images/infographic.png" width="100%" height="auto" allow="autoplay">
+        </img>
+    </div>
+    <!-- END -->
+
+
+    <!-- EVENTS -->
+    <div class="float-container">
+        <div class="float-left">
+            <h3 style="color:#6d31a2"><strong>EVENTS</strong></h3>
+        </div>
+        <div class="float-child1">
+            <h5><strong>Technovation</strong></h5>
+            <p>26/04/2022</p>
+            <div>
+                <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/2021-EOY-AlumnaeEvent_Hero_1_ZNNTrqS.png"
+                    width="500" height="300">
+            </div>
+            <br>
+            <p>
+                Since 2010, more than 34,000 girls from 100+ countries have created apps to solve community problems.
+                With the help of volunteer mentors, they've produced mobile app startups that have helped address
+                problems in
+                local and global communities the world over.
+            </p>
+            <div class="buttoncenter">
+                <a href="https://technovationchallenge.org/" class="button button1">Read More</a>
+            </div>
+        </div>
+        <div class="float-child1">
+            <h5><strong>UK Engineering Careers Event</strong></h5>
+            <p>22/06/2022</p>
+            <div>
+                <img src="https://d3jh33bzyw1wep.cloudfront.net/s3/W1siZiIsIjIwMTkvMDkvMjUvMTAvNTcvMTEvMzQxLzE4MTEwNUNNQ19TVEVNX0dsYXNnb3ctMTAzMC5qcGciXV0"
+                    width="500" height="300">
+            </div>
+            <br>
+            <p>
+                STEM Women Event introducing students and graduates to engineering employers in the UK.
+                The UK Engineering Careers Event is a great way to meet face-to-face with employers and discover new
+                opportunities.
+            </p>
+            <br>
+            <div class="buttoncenter">
+                <a href="https://careers.stemwomen.com/event/6103" class="button button1">Read More</a>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <div class="float-container">
+        <div class="buttoncenter">
+            <a href="http://127.0.0.1:8000/events/" class="button button1">ALL EVENTS</a>
+        </div>
+    </div>
+    <!-- END -->
+    <!-- <div class="float-container">
+        <iframe
+            width="10" height="10" src="https://www.youtube.com/embed/tgbNymZ7vqY?playlist=DKoRBBKevHk&autoplay=1&loop=1"
+            title="YouTube video player" frameborder="0"
+            allow="autoplay; encrypted-media" allowfullscreen>
+        </iframe>
+    </div> -->
+</body>
+
+
+<!-- NEWS SCRIPT -->
+<script>
+    var slideIndex = 1;
+    var timer;
+    showSlides(slideIndex);
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        clearTimeout(timer);
+        timer = setTimeout(() => plusSlides(1), 3500);
+    }
+</script>
+<!-- END -->
+
+{% endblock %}

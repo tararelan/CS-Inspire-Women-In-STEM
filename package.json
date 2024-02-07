@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "react-router-dom": "^6.3.0",
+    "styled-components": "^5.3.5"
+  },
+  "devDependencies": {
+    "@symfony/webpack-encore": "^2.1.0",
+    "webpack-notifier": "^1.15.0"
+  }
+}

@@ -1,0 +1,112 @@
+{% extends 'basic.html' %}
+
+{% block profileactive %} active {% endblock profileactive %}
+{% block content %}
+
+<head>
+    <title>Profile</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        body {
+            font-family: Verdana, sans-serif;
+            margin: 0
+        }
+    </style>
+</head>
+
+<body>
+    <br>
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message : </strong> {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-lg-offset-0">
+                <div class="row pad">
+                    <div class="col-lg-12">
+                        <div class="panel panel-primary">
+                            <div class="card-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item" style="border:none">
+                                        <form action="/myprofile/" enctype="multipart/form-data" method="POST">{% csrf_token %}
+                                            <!-- {{ form.as_p }} -->
+                                            <!-- <button type="submit">Upload</button> -->
+
+                                            <div class="float-left" style="width:25%">
+                                                <img src="{{request.user.profile.image.url}}"
+                                                    class="float-left" alt="" style="object-fit:cover; width:100%; height:80%;">
+                                                    <br><br><br><br><br><br><br><br><br>
+                                                    <!-- BASIC INFORMATION -->
+                                                    <strong style="font-size:24px; color:#6d31a2">{{request.user.get_full_name}}</strong>
+                                                    <br>
+                                                    <button style="font-size:25px; background-color:white; border: none; width:0px; padding:0px"><i class="fa fa-map-marker" style="color:white"></i></button>
+                                                    <a href="/members/" style="color:black; text-decoration:none;">
+                                                        <i style="font-size:25px; color:black;" class="fa">&#xf041;</i>Hong Kong, HKSAR
+                                                    </a>
+                                                    <p style="font-size:15px">Electronics Engineering, HKUST</p>
+                                            </div>
+
+                                            <div class="float-right" style="width:75%">
+                                                <!-- BIOGRAPHY -->
+                                                <li class="list-group-item" style="border:none;">
+                                                    <button style="font-size:25px; background-color:white; border: none; width:0px; padding:0px"><i class="fa fa-map-marker" style="color:white"></i></button>
+                                                    <i style="font-size:25px; color:black" class="fa">&#xf007;</i>&nbspIntroduction
+                                                    <p style="font-size:15px">I am an electronic engineering undergraduate student passionate about data science,
+                                                        cryptography and women in STEM, having spearheaded various initiatives for girls in technology as a Digital
+                                                        Leader. I am proficient in a range of modern technologies including Python, C++ and Java.</p>
+                                                </li>
+                                                <hr>
+                                                <!-- CONTACT INFORMATION -->
+                                                <li class="list-group-item" style="border:none;">
+                                                    <button style="font-size:25px; background-color:white; border: none; width:0px; padding:0px"><i class="fa fa-map-marker" style="color:white"></i></button>
+                                                    <i style="font-size:25px; color:black" class="fa">&#xf2bb;</i>&nbspContact Information
+                                                </li>
+                                                <li class="list-group-item"  style="border:none; font-size: 15px;">
+                                                    <strong style="color:#6d31a2">Username: </strong>{{request.user}}
+                                                </li>
+                                                <li class="list-group-item" style="border:none; font-size: 15px;">
+                                                    <strong style="color:#6d31a2">Email Address: </strong> {{request.user.email}}
+                                                </li>
+                                                <li class="list-group-item" style="border:none; font-size: 15px;">
+                                                    <strong style="color:#6d31a2">Phone Number: </strong> +852 9858 3992
+                                                </li>
+                                                <hr>
+
+                                                <!-- GENERAL INFORMATION -->
+                                                <li class="list-group-item" style="border:none">
+                                                    <button style="font-size:25px; background-color:white; border: none; width:0px; padding:0px"><i class="fa fa-map-marker" style="color:white"></i></button>
+                                                    <i style="font-size:25px; color:black" class="fa">&#xf013;</i>&nbspGeneral Information
+                                                    <li class="list-group-item"  style="border:none; font-size: 15px;">
+                                                        <strong style="color:#6d31a2">Interests: </strong>Data Science, Artificial Intelligence, Communications
+                                                    </li>
+                                                    <li class="list-group-item"  style="border:none; font-size: 15px;">
+                                                        <strong style="color:#6d31a2">Activity: </strong>
+                                                        <br>29/05/2022 (Post): Why women drop out of STEM
+                                                        <br>06/06/2022 (Reply): What business could learn from science
+                                                    </li>
+                                                </li>
+                                            </div>
+
+                                            
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>WiSTEM</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="icon" href="/favicon.ico" />
+    <!-- <link rel="stylesheet" type="text/css" href="profile_of_user\templates\basic.css"> -->
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/6.1.19/browser.js"></script>
+    {% block js %} {% endblock %}
+
+
+    <style>
+        .bg-custom {
+            background-color: #6d31a2
+        }
+
+        .bg-custom:hover {
+            background-color: #6d31a2
+        }
+
+        .navbar-custom {
+            z-index: 9999;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            padding: .5rem 1rem;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- BOOTSTRAP NAVBAR CODE -->
+    <nav class="navbar-custom navbar-expand-lg bg-custom">
+        <!-- <span class="navbar-text text-white">WiSTEM</span> -->
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <!-- <a class="nav-link text-white">|</a> -->
+                <li class="nav-item {% block homeactive %} {% endblock homeactive %}">
+                    <a class="nav-link text-white" href="/home">Home</a>
+                </li>
+                <a class="nav-link text-white">|</a>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/news">News</a>
+                </li>
+                <a class="nav-link text-white">|</a>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/events">Events</a>
+                </li>
+                <a class="nav-link text-white">|</a>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/contact">Contact</a>
+                </li>
+                <a class="nav-link text-white">|</a>
+
+                {% if user.is_authenticated %}
+                <ul class="navbar-nav mr-2">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href='#' id="navbarDropdown" role="button"
+                            data-toggle="dropdown">Account</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/myprofile">Profile</a>
+                            <a class="dropdown-item" href="/logout">Logout</a>
+                        </div>
+                    </li>
+                    <a class="nav-link text-white">|</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href='#' id="navbarDropdown" role="button"
+                            data-toggle="dropdown">Members</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/members">Members</a>
+                            <a class="dropdown-item" href="/forum">Forum</a>
+                        </div>
+                    </li>
+                    {% else %}
+                    <li class="nav-item {% block loginactive %} {% endblock loginactive %}">
+                        <a class="nav-link text-white" href="/login">Login</a>
+                    </li>
+                    <a class="nav-link text-white">|</a>
+                    <li class="nav-item {% block registeractive %} {% endblock registeractive %}">
+                        <a class="nav-link text-white" href="/register">Register</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </ul>
+        </div>
+    </nav>
+    <br>
+</body>
+{% block content %}
+{% endblock %}
+{% block body %}
+{% endblock %}
+
+</html>

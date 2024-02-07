@@ -1,0 +1,135 @@
+{% extends 'basic.html' %}
+
+{% block content %}
+
+<head>
+    <title>Discussion</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Verdana, sans-serif; margin:0
+        }
+
+        .card-body {
+            flex: 1 1 auto;
+            padding: 1.25rem;
+        }
+
+        .card-body p {
+            font-size: 15px;
+        }
+
+        .button {
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px 1px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .button1 {
+            background-color: white;
+            color: black;
+            border: 2px solid #6d31a2;
+        }
+
+        .button1:hover {
+            background-color: #6d31a2;
+            color: white;
+        }
+
+        .buttoncenter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <br>
+    <div class="container-fluid mt-5" style="width:1200px">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <div class="media flex-wrap w-100 align-items-center"> <img src="/media/{{post.image}}"
+                                class="d-block ui-w-40 rounded-circle" alt="" width="30px" height="30px">
+                            <div class="media-body ml-3">
+                                <h4 style="font-size: 20px; color: #6d31a2"><strong>{{post.user1.first_name}} {{post.user1.last_name}}</strong></h4>
+                                <!-- <a data-abc="true">{{post.user1.first_name}} {{post.user1.last_name}}</a> -->
+                            </div>
+                            <div class="text-muted small ml-3">
+                                <div>Date and time of post:</div>
+                                <div><strong>{{post.timestamp}}</strong></div>
+                            </div>
+                        </div>
+                    </div>         
+                    <div class="card-body">
+                        <h5 style="float:left; font-size: 18px;">{{post.post_title}}</h5>
+                        <br><br>
+                        <p style="font-size: 15px;">{{post.post_content}}</p>
+                    </div>
+                    <div class="card-footer d-flex flex-wrap justify-content-between align-items-center px-0 pt-0 pb-3">
+                        <div class="px-4 pt-3"> <button type="button" class="button button1" data-target="#reply" data-toggle="modal"><i
+                            class="ion ion-md-create"></i>Reply</button> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% for reply in replies %}
+    <br>
+    <div class="container">
+        <div class="media">
+            <img class="mr-3 rounded-circle" src="/media/{{reply.image}}" alt="." width="30px" height="30px">
+            <div class="media-body">
+                <h5 style="font-size: 20px; color: #6d31a2"><strong>{{reply.user.first_name}} {{reply.user.last_name}}</strong></h5>
+                <p><span style="font-size: 15px;">{{reply.timestamp}}</span></p>
+                <p style="font-size: 15px;">{{reply.reply_content}}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <!-- Modal -->
+    <div class="modal fade" id="reply" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <br><br><br><br>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Reply</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {% if user.is_authenticated %}
+                <div class="modal-body">
+                    <form action="/discussion/{{post.id}}/" method="POST"> {% csrf_token %}
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Post your reply here</label>
+                        <input type="hidden" name="post_id" value="{{post.id}}">
+                        <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
+                    </div>
+                </div>
+                {% else %}
+                <h3>Please Login first to post a reply</h3>
+                {% endif %}
+                <div class="modal-footer">
+                    <button type="button" class="button button1" data-dismiss="modal">Close</button>
+                    <button type="submit" class="button button1">Post Reply</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

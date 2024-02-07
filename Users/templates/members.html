@@ -1,0 +1,76 @@
+{% extends 'basic.html' %}
+{% block content %}
+
+<head>
+    <title>Members</title>
+    <style>
+        .float-container {
+        padding: 30px;
+    }
+
+    .float-child {
+        width: 50%;
+        float: left;
+        padding: 30px;
+    }
+
+    /* Same thing but with a border */
+    .float-child1 {
+        width: 40%;
+        float: left;
+        padding: 10px;
+        border: 1px solid lightgray;
+        border-collapse: separate;
+        width: calc(50% - 4.7em);
+        margin-left: 3.5em;
+    }
+
+    .float-left {
+        width: 100%;
+        float: left;
+        padding: 30px;
+    }
+
+    .float-right {
+        width: 50%;
+        float: right;
+        padding: 30px;
+    }
+
+    .float-center {
+        display: block;
+        float: center;
+        margin-left: auto;
+        margin-right: auto;
+        width: 600px;
+        height: 400px;
+    }
+
+    body {
+        font-family: Verdana, sans-serif; margin:0
+    }
+    </style>
+</head>
+
+<body>
+    <div class="float-container">
+        <div class="float-left">
+            <h2 style="font-size:4vw; color:#6d31a2">MEMBERS</h2>
+            <p>Our members come from 23 different countries, specialising in dozens of
+                different areas from data science to biotechnology to chemical engineering.
+                Through our programs, we empower women in STEM with opportunities to connect, participate in
+                activities, and support to become leaders in their respective STEM fields.
+                The Women in STEM Network offers women a wide range of opportunities to grow as researchers
+                and professionals, gaining valuable experience, publish studies, and be recognised for remarkable
+                work.
+            </p>
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br>
+    <div style="display: flex; justify-content: center;">
+        <iframe width="1000" height="520" src="map" style="border:none;" title="Map of Members"></iframe>
+    </div>
+    <br><br>
+</body>
+
+{% endblock %}

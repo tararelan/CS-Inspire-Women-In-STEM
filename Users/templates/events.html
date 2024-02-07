@@ -1,0 +1,191 @@
+{% extends 'basic.html' %}
+
+{% block content %}
+
+<head>
+    <title>Events</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .float-container {
+            padding: 30px;
+        }
+
+        .float-child {
+            width: 100%;
+            float: left;
+            padding: 40px;
+            border-collapse: separate;
+            /* width: calc(50% - 1em); */
+            margin-left: -0.1em;
+        }
+
+        .float-child1 {
+            width: 100%;
+            float: left;
+            padding-left: -10px;
+            border-bottom: 1px solid #6d31a2;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .float-left {
+            width: 100%;
+            float: left;
+            padding: 30px;
+        }
+
+        .button {
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px 1px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .button1 {
+            background-color: white;
+            color: black;
+            border: 2px solid #6d31a2;
+        }
+
+        .button1:hover {
+            background-color: #6d31a2;
+            color: white;
+        }
+
+        .buttoncenter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: Verdana, sans-serif;
+            margin: 0
+        }
+    </style>
+</head>
+
+<body>
+    <div class="float-container">
+        <div class="float-left">
+            <h2 style="font-size:4vw; color:#6d31a2">EVENTS</h2>
+            <a href="http://127.0.0.1:8000/events/calendar" class="button button1">CALENDAR</a>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="float-container">
+        <div class="float-child">
+            <h3 style="color:#6d31a2;">Upcoming Events</h3>
+            <!-- EVENT 1 -->
+            <div class="float-child1">
+                <div style="display: flex; justify-content: space-between;">
+                    <h5>HK Hybrid STEM Careers Fair</h5>
+                    <p style="color:rgba(222, 92, 92); text-align:right;"><strong>Careers</strong></p>
+                </div>
+                <p>2nd July 2022, Virtual and in the HKCEC</p>
+                <p>A hybrid HK STEM careers event with networking and talks taking place in Hong Kong and online.</p>
+
+                <div class="buttoncenter">
+                    <a href="http://127.0.0.1:8000/events/" class="button button1">Read More</a>
+                </div>
+            </div>
+            <!-- EVENT 2 -->
+            <div class="float-child1">
+                <div style="display: flex; justify-content: space-between;">
+                    <h5>Canadian Coding Competition</h5>
+                    <p style="color:rgb(92, 151, 222); text-align:right;"><strong>Competitions</strong></p>
+                </div>
+                <p>5th July 2022, The University of Waterloo</p>
+                <p>The Canadian Computing Competition (CCC) is a fun challenge for students with an interest in
+                    programming.
+                    Designed to be both accessible to students with some programming experience and to challenge the
+                    keenest
+                    programmers at the secondary-school level, the CCC helps students build confidence and grow their
+                    ability
+                    to design, understand and implement algorithms.</p>
+                <div class="buttoncenter">
+                    <a href="http://127.0.0.1:8000/events/" class="button button1">Read More</a>
+                </div>
+            </div>
+            <!-- EVENT 3 -->
+            <div class="float-child1">
+                <div style="display: flex; justify-content: space-between;">
+                    <h5>The Couple Driving an mRNA Vaccine Revolution</h5>
+                    <p style="color:rgb(222, 142, 92); text-align:right;"><strong>Talks</strong></p>
+                </div>
+                <p>8th July 2022, Virtual</p>
+                <p>As COVID-19 spread, BioNTech cofounders Uğur Şahin and Özlem Türeci had one goal: to make a safe,
+                    effective
+                    vaccine faster than ever before. In this illuminating conversation with head of TED Chris Anderson,
+                    the
+                    immunologists (and married couple) share the fascinating story of how their decades of mRNA research
+                    powered
+                    the Pfizer-BioNTech vaccine -- and forecast what this breakthrough science could mean for the future
+                    of vaccines
+                    and other immunotherapy treatments.</p>
+                <div class="buttoncenter">
+                    <a href="http://127.0.0.1:8000/events/" class="button button1">Read More</a>
+                </div>
+            </div>
+            <!-- EVENT 4 -->
+            <div class="float-child1">
+                <div style="display: flex; justify-content: space-between;">
+                    <h5>Envirothon</h5>
+                    <p style="color:rgb(92, 151, 222); text-align:right;"><strong>Competitions</strong></p>
+                </div>
+                <p>9th July 2022, Virtual</p>
+                <p>NCF-Envirothon is an annual environmentally themed academic competition for high school aged students
+                    organized
+                    by the NCF-Envirothon a program of the National Conservation Foundation.</p>
+                <div class="buttoncenter">
+                    <a href="http://127.0.0.1:8000/events/" class="button button1">Read More</a>
+                </div>
+            </div>
+            <!-- EVENT 5 -->
+            <div class="float-child1">
+                <div style="display: flex; justify-content: space-between;">
+                    <h5>Adding Value as a Trusted Partner Workshop</h5>
+                    <p style="color:rgb(92, 222, 131); text-align:right;"><strong>Other</strong></p>
+                </div>
+                <p>9th June 2022, Virtual</p>
+                <p>This is a highly interactive instructor-led virtual training session designed to increase your skills
+                    and
+                    abilities to build stronger relationships as a trusted partner and deliver better business results
+                </p>
+                <div class="buttoncenter">
+                    <a href="http://127.0.0.1:8000/events/" class="button button1">Read More</a>
+                </div>
+            </div>
+            <!-- PAST EVENTS -->
+        </div>
+        <div class="float-child">
+            <h3 style="color:#6d31a2;">Past Events</h3>
+        </div>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <div class="float-container">
+            <div class="buttoncenter">
+                <a href="http://127.0.0.1:8000/events/archives/" class="button button1">ARCHIVES</a>
+            </div>
+        </div>
+</body>
+
+{% endblock %}

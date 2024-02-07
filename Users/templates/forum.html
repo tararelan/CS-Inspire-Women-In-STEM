@@ -1,0 +1,425 @@
+{% extends 'basic.html' %}
+
+{% block content %}
+
+<head>
+    <title>Forum</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .float-container {
+            padding: 30px;
+        }
+
+        .float-child {
+            width: 50%;
+            float: left;
+            padding: 30px;
+        }
+
+        /* Same thing but with a border */
+        .float-child1 {
+            width: 40%;
+            float: left;
+            padding: 10px;
+            border: 1px solid lightgray;
+            border-collapse: separate;
+            width: calc(50% - 4.7em);
+            margin-left: 3.5em;
+        }
+
+        .float-left {
+            width: 100%;
+            float: left;
+            padding: 30px;
+        }
+
+        .float-right {
+            width: 50%;
+            float: right;
+            padding: 30px;
+        }
+
+        .float-center {
+            display: block;
+            float: center;
+            margin-left: auto;
+            margin-right: auto;
+            width: 600px;
+            height: 400px;
+        }
+
+        .button {
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px 1px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .button1 {
+            background-color: white;
+            color: black;
+            border: 2px solid #6d31a2;
+        }
+
+        .button1:hover {
+            background-color: #6d31a2;
+            color: white;
+        }
+
+        .buttoncenter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+        }
+
+        .mt-100 {
+            margin-top: 100px;
+        }
+
+        .card {
+            box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03),
+                0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03),
+                0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05),
+                0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+            border-width: 0px;
+            transition: all 0.2s;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            border-bottom-width: 1px;
+            padding-top: 0;
+            padding-bottom: 0;
+            padding-right: .625rem;
+            height: 3.5rem;
+            background-color: #ffff;
+            border-bottom: 1px solid rgba(26, 54, 126, 0.125);
+        }
+
+        .card-body {
+            flex: 1 1 auto;
+            padding: 1.25rem;
+        }
+
+        .card-body p {
+            font-size: 15px;
+        }
+
+        .media img {
+            width: 40px;
+            height: 40px
+        }
+
+        .filterDiv {
+            background-color: white;
+        }
+
+        .science {
+            color: #43b75d;
+        }
+
+        .technology {
+            color: #3db1f3;
+        }
+
+        .engineering {
+            color: #f40000;
+        }
+
+        .mathematics {
+            color: #2771c3;
+        }
+
+        .medicine {
+            color: #092162;
+        }
+
+        .wistem {
+            color: #b80000;
+        }
+
+        .entrepreneurship {
+            color: #f9c514;
+        }
+
+        .other {
+            color: #98d046;
+        }
+
+        .arrow {
+            border: solid black;
+            border-width: 0 3px 3px 0;
+            display: inline-block;
+            padding: 3px;
+        }
+
+        .right {
+            transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+        }
+
+        .btn {
+            border: none;
+            outline: none;
+            /* padding: 12px 16px; */
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: white;
+        }
+
+        .btn.active {
+            background-color: #666;
+            color: white;
+        }
+
+        body {
+            font-family: Verdana, sans-serif;
+            margin: 0
+        }
+    </style>
+</head>
+
+
+<body>
+    <!-- INTRODUCTION -->
+    <div class="float-container">
+        <div class="float-left">
+            <h2 style="font-size:4vw; color:#6d31a2">FORUM</h2>
+            <h5>Welcome to our discussion forum. You can post your thoughts or any related queries here!</h5>
+            <button class="button button1" data-target="#questions" data-toggle="modal">Add Post</button>
+        </div>
+    </div>
+
+    <!-- FORUM POSTS -->
+    <div class="container-fluid mt-10" style="width:30%; float:right;">
+        <ul style="list-style-type:none;">
+            <li>
+                <h5 style="color:#6d31a2"><strong>Filter by:</strong></h5>
+            </li>
+            <li>
+                <button class="btn" onclick="filterSelection('science')">
+                    <h5><span style="color:#43b75d;"><strong>|</strong></span>
+                        <span>Science&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                        <i class="arrow right"></i></p>
+                    </h5>
+                </button>
+            </li>
+            <li>
+                <button class="btn" onclick="filterSelection('technology')">
+                    <h5><span style="color:#3db1f3;"><strong>|</strong></span>
+                        <span>Technology&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                        <i class="arrow right"></i></p>
+                    </h5>
+                </button>
+            </li>
+            <li>
+                <button class="btn" onclick="filterSelection('engineering')">
+                    <h5><span style="color:#f40000;"><strong>|</strong></span>
+                        <span>Engineering&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                        <i class="arrow right"></i></p>
+                    </h5>
+                </button>
+            </li>
+            <li>
+                <button class="btn" onclick="filterSelection('mathematics')">
+                    <h5><span style="color:#2771c3;"><strong>|</strong></span>
+                        <span>Mathematics&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                        <i class="arrow right"></i></p>
+                    </h5>
+                </button>
+            </li>
+            <li>
+                <button class="btn" onclick="filterSelection('medicine')">
+                    <h5><span style="color:#092162;"><strong>|</strong></span>
+                        <span>Medicine&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                        <i class="arrow right"></i></p>
+                    </h5>
+                </button>
+            </li>
+            <li>
+                <button class="btn" onclick="filterSelection('wistem')">
+                    <h5><span style="color:#b80000;"><strong>|</strong></span>
+                        <span>Women in STEM&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                        <i class="arrow right"></i></p>
+                    </h5>
+                </button>
+            </li>
+            <li>
+                <button class="btn" onclick="filterSelection('entrepreneurship')">
+                    <h5><span style="color:#f9c514;"><strong>|</strong></span>
+                        <span>Entrepreneurship&nbsp&nbsp&nbsp&nbsp</span>
+                        <i class="arrow right"></i></p>
+                    </h5>
+                </button>
+            </li>
+            <li>
+                <button class="btn" onclick="filterSelection('other')">
+                    <h5><span style="color:#98d046;"><strong>|</strong></span>
+                        <span>Other&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>
+                        <i class="arrow right"></i></p>
+                    </h5>
+                </button>
+            </li>
+        </ul>
+    </div>
+    {% for post in posts %}
+    <div class="container-fluid mt-10" style="width:70%; float:left; padding-left:60px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <div class="media flex-wrap w-100 align-items-center">
+                            <img src="/media/{{post.image}}" class="d-block ui-w-40 rounded-circle" alt="">
+                            <div class="media-body ml-3">
+                                <strong style="color:#6d31a2; font-size: 20px;">{{post.user1.first_name}}
+                                    {{post.user1.last_name}}</strong>
+                            </div>
+                            <div class="text-muted small ml-3">
+                                <div class="px-4 pt-3">
+                                    {% if post.post_topic == "Science" %}
+                                    <div class="filterDiv science"><strong
+                                            style="float:right;">
+                                            {{post.post_topic}}</strong></div>
+                                    {% elif post.post_topic == "Technology" %}
+                                    <div class="filterDiv technology"><strong
+                                            style="float:right;">{{post.post_topic}}</strong></div>
+                                    {% elif post.post_topic == "Engineering" %}
+                                    <div class="filterDiv engineering"><strong
+                                            style="float:right;">{{post.post_topic}}</strong></div>
+                                    {% elif post.post_topic == "Mathematics" %}
+                                    <div class="filterDiv mathematics"><strong
+                                            style="float:right;">{{post.post_topic}}</strong></div>
+                                    {% elif post.post_topic == "Medicine" %}
+                                    <div class="filterDiv medicine"><strong
+                                            style="float:right;">{{post.post_topic}}</strong></div>
+                                    {% elif post.post_topic == "Women in STEM" %}
+                                    <div class="filterDiv wistem"><strong
+                                            style="float:right;">{{post.post_topic}}</strong></div>
+                                    {% elif post.post_topic == "Entrepreneurship" %}
+                                    <div class="filterDiv entrepreneurship"><strong
+                                            style="float:right;">{{post.post_topic}}</strong></div>
+                                    {% elif post.post_topic == "Other" %}
+                                    <div class="filterDiv other"><strong
+                                            style="float:right;">{{post.post_topic}}</strong></div>
+                                    {% endif %}
+                                    <br>
+                                    {{post.timestamp}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <a href="/discussion/{{post.id}}" data-abc="true" style="color:black;">
+                            <h5 style="float:left; font-size: 18px;">{{post.post_title}}</h5>
+                        </a>
+                        <br><br>
+                        <p
+                            style="display:inline-block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 80ch;">
+                            {{post.post_content}}
+                        </p>
+                    </div>
+                    <div class="card-footer d-flex flex-wrap justify-content-between align-items-center px-0 pt-0 pb-3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <!-- POSTING -->
+    <div class="modal fade" id="questions" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <br><br><br><br>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Forum Post</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                {% if user.is_authenticated %}
+                <div class="modal-body">
+                    <form action="/" method="POST"> {% csrf_token %}
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Post your thoughts here</label>
+                            <textarea class="form-control" id="content" name="content" rows="3"></textarea>
+                        </div>
+                </div>
+                {% else %}
+                <h3>Please Login to post</h3>
+                {% endif %}
+                <div class="modal-footer">
+                    <button type="button" class="button button1" data-dismiss="modal">Close</button>
+                    <button type="submit" class="button button1">Post</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    filterSelection("all")
+    function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("filterDiv");
+        if (c == "all") c = "";
+        // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+        for (i = 0; i < x.length; i++) {
+            w3RemoveClass(x[i], "show");
+            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+        }
+    }
+
+    // Show filtered elements
+    function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            if (arr1.indexOf(arr2[i]) == -1) {
+                element.className += " " + arr2[i];
+            }
+        }
+    }
+
+    // Hide elements that are not selected
+    function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            while (arr1.indexOf(arr2[i]) > -1) {
+                arr1.splice(arr1.indexOf(arr2[i]), 1);
+            }
+        }
+        element.className = arr1.join(" ");
+    }
+
+    // Add active class to the current control button (highlight it)
+    // var btnContainer = document.getElementById("myBtnContainer");
+    // var btns = btnContainer.getElementsByClassName("btn");
+    // for (var i = 0; i < btns.length; i++) {
+    //     btns[i].addEventListener("click", function () {
+    //         var current = document.getElementsByClassName("active");
+    //         current[0].className = current[0].className.replace(" active", "");
+    //         this.className += " active";
+    //     });
+    // }
+</script>
+
+{% endblock %}

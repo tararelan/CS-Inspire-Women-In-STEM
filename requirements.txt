@@ -1,0 +1,8 @@
+newsapi
+pycountry
+pycountry_convert
+geopy
+folium
+django
+pillow
+pandas

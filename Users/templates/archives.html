@@ -1,0 +1,151 @@
+{% extends 'basic.html' %}
+
+{% block content %}
+
+<head>
+    <title>Events</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .float-container {
+            padding: 30px;
+        }
+
+        .float-child {
+            width: 100%;
+            float: left;
+            padding: 40px;
+            border-collapse: separate;
+            /* width: calc(50% - 1em); */
+            margin-left: -0.1em;
+        }
+
+        .float-child1 {
+            width: 100%;
+            float: left;
+            padding-left: -10px;
+            border-bottom: 1px solid #6d31a2;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .float-left {
+            width: 100%;
+            float: left;
+            padding: 30px;
+        }
+
+        .button {
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px 1px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+        }
+
+        .button1 {
+            background-color: white;
+            color: black;
+            border: 2px solid #6d31a2;
+        }
+
+        .button1:hover {
+            background-color: #6d31a2;
+            color: white;
+        }
+
+        .buttoncenter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: Verdana, sans-serif;
+            margin: 0
+        }
+    </style>
+</head>
+
+<body>
+    <div class="float-container">
+        <div class="float-left">
+            <h2 style="font-size:4vw; color:#6d31a2">PAST EVENTS</h2>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="float-container">
+        <div class="float-child">
+            <!-- EVENT 1 -->
+            <div class="float-child1">
+                <div style="display: flex; justify-content: space-between;">
+                    <h5>UK Engineering Careers Fair</h5>
+                    <p style="color:rgba(222, 92, 92); text-align:right;"><strong>Careers</strong></p>
+                </div>
+                <p>2nd June 2022, Virtual</p>
+                <div class="buttoncenter">
+                    <a href="http://127.0.0.1:8000/events/" class="button button1">Read More</a>
+                </div>
+            </div>
+            <!-- EVENT 2 -->
+            <div class="float-child1">
+                <div style="display: flex; justify-content: space-between;">
+                    <h5>To the Future Generations of Women, You are the Roots of Change</h5>
+                    <p style="color:rgb(222, 142, 92); text-align:right;"><strong>Talks</strong></p>
+                </div>
+                <p>14th June 2022, Virtual</p>
+                <div class="buttoncenter">
+                    <a href="http://127.0.0.1:8000/events/" class="button button1">Read More</a>
+                </div>
+            </div>
+            <!-- EVENT 3 -->
+            <div class="float-child1">
+                <div style="display: flex; justify-content: space-between;">
+                    <h5>London In-Person STEM Careers Event</h5>
+                    <p style="color:rgba(222, 92, 92); text-align:right;"><strong>Careers</strong></p>
+                </div>
+                <p>17th June 2022, Coin Street Conference Center</p>
+                <div class="buttoncenter">
+                    <a href="http://127.0.0.1:8000/events/archives/" class="button button1">Read More</a>
+                </div>
+            </div>
+            <!-- EVENT 4 -->
+            <div class="float-child1">
+                <div style="display: flex; justify-content: space-between;">
+                    <h5>Project CS Girls</h5>
+                    <p style="color:rgb(92, 151, 222); text-align:right;"><strong>Competitions</strong></p>
+                </div>
+                <p>18th-19th June 2022, Virtual</p>
+                <div class="buttoncenter">
+                    <a href="http://127.0.0.1:8000/events/archives/" class="button button1">Read More</a>
+                </div>
+            </div>
+            <!-- EVENT 5 -->
+            <div class="float-child1">
+                <div style="display: flex; justify-content: space-between;">
+                    <h5>Robomasters</h5>
+                    <p style="color:rgb(92, 151, 222); text-align:right;"><strong>Competitions</strong></p>
+                </div>
+                <p>30th June 2022, Virtual</p>
+                <div class="buttoncenter">
+                    <a href="http://127.0.0.1:8000/events/archives/" class="button button1">Read More</a>
+                </div>
+            </div>
+        </div>
+</body>
+
+{% endblock %}
